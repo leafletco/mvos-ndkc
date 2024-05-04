@@ -48,7 +48,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                     <div class="col-lg-8 col-md-7 col-sm-12">
                         <h3><b><?= $name ?></b></h3>
                         <div class="d-flex w-100">
-                            <div class="col-auto px-0"><small class="text-muted">Vendor: </small></div>
+                            <div class="col-auto px-0"><small class="text-muted">Vendor:  </small></div>
                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><small class="text-muted"><?= $vendor ?></small></p></div>
                         </div>
                         <div class="d-flex">
@@ -56,7 +56,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><small class="text-muted"><?= $category ?></small></p></div>
                         </div>
                         <div class="d-flex">
-                            <div class="col-auto px-0"><small class="text-muted">Price: </small></div>
+                            <div class="col-auto px-0"><small class="text-muted">Price: PHP</small></div>
                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($price) ?></small></p></div>
                         </div>
                         <div class="row align-items-end">

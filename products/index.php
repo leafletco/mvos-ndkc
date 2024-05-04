@@ -74,7 +74,7 @@ $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
                                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="text-truncate m-0"><small class="text-muted"><?= $row['category'] ?></small></p></div>
                                         </div>
                                         <div class="d-flex">
-                                            <div class="col-auto px-0"><small class="text-muted">Price: </small></div>
+                                            <div class="col-auto px-0"><small class="text-muted">Price: PHP</small></div>
                                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($row['price']) ?></small></p></div>
                                         </div>
                                         <p class="card-text truncate-3 w-100"><?= strip_tags(html_entity_decode($row['description'])) ?></p>
@@ -84,7 +84,7 @@ $category_ids = isset($_GET['cids']) ? $_GET['cids'] : 'all';
                             <?php endwhile; ?>
                             <?php else: ?>
                                 <div class="col-12 text-center">
-                                    Pleas select atleast 1 product category
+                                    Pleas select at least 1 product category
                                 </div>
                             <?php endif; ?>
                         </div>

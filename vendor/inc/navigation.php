@@ -47,7 +47,7 @@
                         </p>
                       </a>
                     </li>
-                    <li class="nav-header">Report</li>
+                    <li class="nav-header">Export Settings</li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>vendor/?page=reports/order_reports" class="nav-link nav-reports/order_reports">
                         <i class="nav-icon fas fa-file-alt"></i>
@@ -56,7 +56,7 @@
                         </p>
                       </a>
                     </li>
-                    <li class="nav-header">Maintenance</li>
+                    <li class="nav-header">Import Settings</li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>vendor/?page=categories" class="nav-link nav-categories">
                         <i class="nav-icon fas fa-th-list"></i>

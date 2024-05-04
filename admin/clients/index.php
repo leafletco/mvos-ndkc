@@ -15,7 +15,7 @@
 </style>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Vlients</h3>
+		<h3 class="card-title">List of Clients</h3>
 	</div>
 	<div class="card-body">
 		<div class="container-fluid">

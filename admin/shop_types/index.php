@@ -5,7 +5,7 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Shop Types</h3>
+		<h3 class="card-title">List of Product Types</h3>
 		<div class="card-tools">
 			<a href="javascript:void(0)" class="btn btn-flat btn-primary" id="create_new"><span class="fas fa-plus"></span>  Create New</a>
 		</div>
@@ -25,7 +25,7 @@
 					<tr class="bg-gradient-secondary">
 						<th>#</th>
 						<th>Date Created</th>
-						<th>shop_type</th>
+						<th>Product Type</th>
 						<th>Status</th>
 						<th>Action</th>
 					</tr>
@@ -69,13 +69,13 @@
 <script>
 	$(document).ready(function(){
 		$('#create_new').click(function(){
-			uni_modal('Add New Shop Type',"shop_types/manage_shop_type.php")
+			uni_modal('Add New Product Type',"shop_types/manage_shop_type.php")
 		})
 		$('.edit_data').click(function(){
-			uni_modal('Update Shop Type',"shop_types/manage_shop_type.php?id="+$(this).attr('data-id'))
+			uni_modal('Update Product Type',"shop_types/manage_shop_type.php?id="+$(this).attr('data-id'))
 		})
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this Shop Type permanently?","delete_shop_type",[$(this).attr('data-id')])
+			_conf("Are you sure to delete this Product Type permanently?","delete_shop_type",[$(this).attr('data-id')])
 		})
 		$('table .th,table .td').addClass('align-middle px-2 py-1')
 		$('.table').dataTable();

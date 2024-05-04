@@ -63,7 +63,7 @@
                         </p>
                       </a>
                     </li>
-                    <li class="nav-header">Maintenance</li>
+                    <li class="nav-header">Export Settings</li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=reports/order_reports" class="nav-link nav-reports_order_reports">
                         <i class="nav-icon fas fa-calendar"></i>
@@ -73,12 +73,12 @@
                       </a>
                     </li>
                     <?php if($_settings->userdata('type') == 1): ?>
-                    <li class="nav-header">Maintenance</li>
+                    <li class="nav-header">Import Settings</li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=shop_types" class="nav-link nav-shop_types">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                          Shop Type list
+                          Product Type List
                         </p>
                       </a>
                     </li>

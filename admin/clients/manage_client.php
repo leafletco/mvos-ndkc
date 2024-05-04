@@ -95,7 +95,7 @@ if(isset($_GET['id'])){
                                 </div>
                             </div>
                         </div>
-						<small class="text-muted"><i>Leave the New Password Fileds blank if you don't want to update it.</i></small>
+						<small class="text-muted"><i>Leave the New Password Fields blank if you don't want to update it.</i></small>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
