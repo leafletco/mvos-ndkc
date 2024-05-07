@@ -159,7 +159,7 @@ Class Master extends DBConnection {
 					$dir_path =base_app. $fname;
 					$upload = $_FILES['img']['tmp_name'];
 					$type = mime_content_type($upload);
-					$allowed = array('image/png','image/jpeg');
+					$allowed = array('image/png','image/jpeg', 'image/jpg');
 					if(!in_array($type,$allowed)){
 						$resp['msg']=" But Image failed to upload due to invalid file type.";
 					}else{

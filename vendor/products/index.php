@@ -59,11 +59,12 @@
 						<td class="text-right"><?php echo $row['stock_available'] ?></td> <!-- Display available stock -->
 
 						<td class="text-center"
-						<?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Admin Approved</span>
+						<?php if($row['status'] == 0): ?>
+                                    <span class="badge badge-success bg-gradient-success px-5 rounded-pill">Pending Admin Approval</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger bg-gradient-danger px-5 rounded-pill">Pending Admin Approval</span>
+                                    <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Admin Approved</span>
                                 <?php endif; ?>
+								
 						</td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">

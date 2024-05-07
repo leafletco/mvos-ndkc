@@ -57,9 +57,9 @@
 							<td class="text-right"><?php echo format_num($row['price']) ?></td>
 							<td class="text-center">
                                 <?php if($row['status'] == 0): ?>
-                                    <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Admin Approved</span>
+                                    <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Pending Admin Approval</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Pending Admin Approval</span>
+                                    <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Admin Approved</span>
                                 <?php endif; ?>
                             </td>
 							<td align="center">
