@@ -49,9 +49,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
         <dt class="text-muted">Status</dt>
         <dd class="pl-3">
             <?php if($status == 1): ?>
-                <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Active</span>
+                <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Admin Approved</span>
             <?php else: ?>
-                <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Inactive</span>
+                <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Pending Admin</span>
             <?php endif; ?>
         </dd>
     </dl>

@@ -27,13 +27,10 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
         <input type="hidden" name="id" value="<?= isset($id) ? $id : '' ?>">
         <div class="form-group">
             <label for="status" class="control-label">Status</label>
-            <select name="status" id="status" class="form-control rounded-0" required>
-                <option <?= isset($status) && $status == 0 ? 'selected' : '' ?> value="0">Pending</option>
-                <option <?= isset($status) && $status == 1 ? 'selected' : '' ?> value="1">Confirmed</option>
-                <option <?= isset($status) && $status == 2 ? 'selected' : '' ?> value="2">Packed</option>
-                <option <?= isset($status) && $status == 3 ? 'selected' : '' ?> value="3">Out for Delivery</option>
-                <option <?= isset($status) && $status == 4 ? 'selected' : '' ?> value="4">Delivered</option>
-                <option <?= isset($status) && $status == 5 ? 'selected' : '' ?> value="5">Cancelled</option>
+            <select name="status" id="status" class="form-control rounded-1" required>
+                <option <?= isset($status) && $status == 0 ? 'selected' : '' ?> value="0">Pending Order</option>
+                <option <?= isset($status) && $status == 1 ? 'selected' : '' ?> value="1">Order Received</option>
+                <option <?= isset($status) && $status == 5 ? 'selected' : '' ?> value="2">Cancelled</option>
             </select>
         </div>
     </form>

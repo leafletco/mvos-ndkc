@@ -39,6 +39,7 @@
 						<th>Image</th>
 						<th>Name</th>
 						<th>Cost</th>
+						<th>Stock Available</th>
 						<th>Status</th>
 						<th>Action</th>
 					</tr>
@@ -50,18 +51,20 @@
 						while($row = $qry->fetch_assoc()):
 					?>
 						<tr>
-							<td class="text-center"><?php echo $i++; ?></td>
-							<td><?php echo date("Y-m-d H:i",strtotime($row['date_created'])) ?></td>
-							<td class="text-center"><img src="<?= validate_image($row['image_path']) ?>" alt="Product Image" class="border border-gray img-thumbnail product-img"></td>
-							<td><?php echo $row['name'] ?></td>
-							<td class="text-right"><?php echo format_num($row['price']) ?></td>
-							<td class="text-center">
-                                <?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Active</span>
+						<td class="text-center"><?php echo $i++; ?></td>
+						<td><?php echo date("Y-m-d H:i", strtotime($row['date_created'])) ?></td>
+						<td class="text-center"><img src="<?= validate_image($row['image_path']) ?>" alt="Product Image" class="border border-gray img-thumbnail product-img"></td>
+						<td><?php echo $row['name'] ?></td>
+						<td class="text-right"><?php echo isset($row['price']) ? '₱ ' . number_format($row['price'], 2) : "" ?></td>
+						<td class="text-right"><?php echo $row['stock_available'] ?></td> <!-- Display available stock -->
+
+						<td class="text-center"
+						<?php if($row['status'] == 1): ?>
+                                    <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Admin Approved</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Inactive</span>
+                                    <span class="badge badge-danger bg-gradient-danger px-5 rounded-pill">Pending Admin Approval</span>
                                 <?php endif; ?>
-                            </td>
+						</td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
 				                  		Action

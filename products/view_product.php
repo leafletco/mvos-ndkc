@@ -55,18 +55,46 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                             <div class="col-auto px-0"><small class="text-muted">Category: </small></div>
                             <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0"><small class="text-muted"><?= $category ?></small></p></div>
                         </div>
-                        <div class="d-flex">
+                            <div class="d-flex">
                             <div class="col-auto px-0"><small class="text-muted">Price: PHP</small></div>
-                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($price) ?></small></p></div>
-                        </div>
-                        <div class="row align-items-end">
-                            <div class="col-md-3 form-group">
-                                <input type="number" min = "1" id= 'qty' value="1" class="form-control rounded-0 text-center">
-                            </div>
-                            <div class="col-md-3 form-group">
-                                <button class="btn btn-primary btn-flat" type="button" id="add_to_cart"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
+                                <p class="m-0 pl-3"><small class="text-primary">₱ <?= number_format($price, 2) ?></small></p>
                             </div>
                         </div>
+                                        <div class="d-flex">
+                    <div class="col-auto px-0"><small class="text-muted">Stock Availablility:</small></div>
+                    <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
+                        <?php if($stock_available == 0): ?>
+                            <p class="m-0 pl-3"><small class="text-danger">Out of Stock</small></p>
+                        <?php else: ?>
+                            <p class="m-0 pl-3"><small class="text-primary"><?= $stock_available ?></small></p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="row align-items-end">
+                    <div class="col-md-3 form-group">
+                        <input type="number" min="1" id="qty" value="1" class="form-control rounded-0 text-center">
+                    </div>
+                    <div class="col-md-3 form-group">
+    <?php if($stock_available > 0): ?>
+        <button class="btn btn-primary btn-flat" type="button" id="add_to_cart"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+    <?php else: ?>
+        <button class="btn btn-primary btn-flat" type="button" id="add_to_cart" disabled><i class="fa fa-cart-plus"></i> Add to Cart</button>
+    <?php endif; ?>
+</div>
+</div>
+
+<script>
+    document.getElementById('add_to_cart').addEventListener('click', function() {
+        var qty = document.getElementById('qty').value;
+        if (<?= $stock_available ?> == 0) {
+            alert('This product is out of stock. You cannot add it to the cart.');
+        } else {
+            // Perform add to cart action
+            alert('Added ' + qty + ' item(s) to cart.');
+        }
+    });
+</script>
                         <div class="w-100"><?= html_entity_decode($description) ?></div>
                     </div>
                 </div>

@@ -48,25 +48,13 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
             $status = isset($status) ? $status : '';
                 switch($status){
                     case 0:
-                        echo '<span class="badge badge-secondary bg-gradient-secondary px-3 rounded-pill">Pending</span>';
+                        echo '<span class="badge badge-secondary bg-gradient-secondary px-3 rounded-pill">Pending Order</span>';
                         break;
                     case 1:
-                        echo '<span class="badge badge-primary bg-gradient-primary px-3 rounded-pill">Confirmed</span>';
+                        echo '<span class="badge badge-primary bg-gradient-primary px-3 rounded-pill">Order Received</span>';
                         break;
                     case 2:
-                        echo '<span class="badge badge-info bg-gradient-info px-3 rounded-pill">Packed</span>';
-                        break;
-                    case 3:
-                        echo '<span class="badge badge-warning bg-gradient-warning px-3 rounded-pill">Out for Delivery</span>';
-                        break;
-                    case 4:
-                        echo '<span class="badge badge-success bg-gradient-success px-3 rounded-pill">Delivered</span>';
-                        break;
-                    case 5:
-                        echo '<span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Cancelled</span>';
-                        break;
-                    default:
-                        echo '<span class="badge badge-light bg-gradient-light border px-3 rounded-pill">N/A</span>';
+                        echo '<span class="badge badge-info bg-gradient-info px-3 rounded-pill">Order cancelled</span>';
                         break;
                 }
             ?>

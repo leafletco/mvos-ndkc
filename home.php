@@ -1,4 +1,4 @@
-<style>
+    <style>
     
 </style>
 <div class="col-lg-12 py-5">
@@ -39,7 +39,9 @@
                         </div>
                         <div class="d-flex">
                             <div class="col-auto px-0"><small class="text-muted">Price: </small></div>
-                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1"><p class="m-0 pl-3"><small class="text-primary"><?= format_num($row['price']) ?></small></p></div>
+                            <div class="col-auto px-0 flex-shrink-1 flex-grow-1">
+                                <p class="m-0 pl-3"><small class="text-primary">₱<?= number_format($row['price'], 2) ?></small></p>
+                            </div>
                         </div>
                         <p class="card-text truncate-3 w-100"><?= strip_tags(html_entity_decode($row['description'])) ?></p>
                     </div>

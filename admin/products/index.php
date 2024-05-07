@@ -56,10 +56,10 @@
 							</td>
 							<td class="text-right"><?php echo format_num($row['price']) ?></td>
 							<td class="text-center">
-                                <?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Active</span>
+                                <?php if($row['status'] == 0): ?>
+                                    <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Admin Approved</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Inactive</span>
+                                    <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Pending Admin Approval</span>
                                 <?php endif; ?>
                             </td>
 							<td align="center">
@@ -69,11 +69,14 @@
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
 				                    <a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> View</a>
+									<div class="dropdown-divider"></div>
+				                    <a class="dropdown-item edit_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
+				                    <div class="dropdown-divider"></div>
 				                  </div>
 							</td>
 						</tr>
 					<?php endwhile; ?>
-				</tbody>
+				</tbody>	
 			</table>
 		</div>
 		</div>

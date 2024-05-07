@@ -51,24 +51,28 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="form-group">
-					<label for="price" class="control-label">Cost</label>
-					<input name="price" id="price" type="number" step="any" class="form-control form-control-sm form-control-border" value="<?php echo isset($price) ? $price : ''; ?>" required>
-				</div>
-				<div class="form-group">
-					<label for="logo" class="control-label">Product Image</label>
-					<input type="file" id="logo" name="img" class="form-control form-control-sm form-control-border" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg" <?= !isset($id) ? 'required' : '' ?>>
-				</div>
+    <div class="form-group">
+        <label for="price" class="control-label">Cost</label>
+        <input name="price" id="price" type="number" step="any" class="form-control form-control-sm form-control-border" value="<?= isset($price) ? $price : ''; ?>" required>
+    </div>
+    <!-- Add input field for stock quantity -->
+    <div class="form-group">
+        <label for="stock_available" class="control-label">Available Stock</label>
+        <input name="stock_available" id="stock_available" type="number" step="1" class="form-control form-control-sm form-control-border" value="<?= isset($stock_available) ? $stock_available : ''; ?>" required>
+    </div>
+	<div class="form-group">
+    <label for="logo" class="control-label">Product Images</label>
+    <input type="file" id="logo" name="images[]" class="form-control form-control-sm form-control-border" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg" multiple <?= !isset($id) ? 'required' : '' ?>>
+	<div class="form-group col-md-6 text-center" id="image-preview-container">
+    <!-- Images will be displayed here dynamically -->
+</div>
 				<div class="form-group col-md-6 text-center">
 					<img src="<?= validate_image(isset($image_path) ? $image_path : "") ?>" alt="Product Image" id="cimg" class="border border-gray img-thumbnail">
 				</div>
 				<div class="form-group">
-					<label for="status" class="control-label">Status</label>
-					<select name="status" id="status" class="custom-select selevt" required>
-					<option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Active</option>
-					<option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactive</option>
-					</select>
-				</div>
+    <label for="status" class="control-label">Status</label>
+    <input type="text" id="status" name="status" class="form-control" value="Pending Admin Approval" readonly>
+</div>
 			</div>
 		</div>
 		
@@ -87,6 +91,27 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 	        	$('#cimg').attr('src', '<?= validate_image(isset($image_path) ? $image_path : "") ?>');
         }
 	}
+	document.getElementById('logo').addEventListener('change', function(event) {
+        const files = event.target.files;
+        const previewContainer = document.getElementById('image-preview-container');
+
+        previewContainer.innerHTML = ''; // Clear previous images
+
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const imgElement = document.createElement('img');
+                imgElement.src = e.target.result;
+                imgElement.classList.add('border', 'border-gray', 'img-thumbnail', 'product-img');
+                previewContainer.appendChild(imgElement);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
+
 	$(document).ready(function(){
 		$('#uni_modal').on('shown.bs.modal',function(){
 			$('#category_id').select2({

@@ -31,7 +31,7 @@ Class Master extends DBConnection {
 		}
 		
 		$check = $this->conn->query("SELECT * FROM `shop_type_list` where `name` = '{$name}' and delete_flag = 0 ".(!empty($id) ? " and id != {$id} " : "")." ")->num_rows;
-		if($this->capture_err())
+		if($this->capture_err())		
 			return $this->capture_err();
 		if($check > 0){
 			$resp['status'] = 'failed';

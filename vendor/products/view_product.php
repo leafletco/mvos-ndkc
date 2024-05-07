@@ -36,23 +36,25 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 <div class="container-fluid">
 	<center><img src="<?= validate_image(isset($image_path) ? $image_path : "") ?>" alt="Product Image" class="img-thubmnail p-0 bg-gradient-gray" id="prod-img-view"></center>
 	<dl>
-        <dt class="text-muted">Product</dt>
-        <dd class="pl-3"><?= isset($name) ? $name : "" ?></dd>
-        <dt class="text-muted">Category</dt>
-        <dd class="pl-3"><?= isset($category) ? $category : "" ?></dd>
-		<dt class="text-muted">Price</dt>
-        <dd class="pl-3"><?= isset($price) ? format_num($price) : "" ?></dd>
-        <dt class="text-muted">Description</dt>
-        <dd class="pl-3"><?= isset($description) ? html_entity_decode($description) : "" ?></dd>
-        <dt class="text-muted">Status</dt>
-        <dd class="pl-3">
-            <?php if($status == 1): ?>
-                <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Active</span>
-            <?php else: ?>
-                <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Inactive</span>
-            <?php endif; ?>
-        </dd>
-    </dl>
+    <dt class="text-muted">Product</dt>
+    <dd class="pl-3"><?= isset($name) ? $name : "" ?></dd>
+    <dt class="text-muted">Category</dt>
+    <dd class="pl-3"><?= isset($category) ? $category : "" ?></dd>
+    <dt class="text-muted">Price</dt>
+    <dd class="pl-3"><?= isset($price) ? '₱ ' . number_format($price, 2) : "" ?></dd>
+	<dt class="text-muted">Stock Available</dt>
+    <dd class="pl-3"><?= isset($stock_available) ? $stock_available : "" ?></dd>
+    <dt class="text-muted">Description</dt>
+    <dd class="pl-3"><?= isset($description) ? html_entity_decode($description) : "" ?></dd>
+    <dt class="text-muted">Status</dt>
+    <dd class="pl-3">
+        <?php if($approval_status == 0): ?>
+            <span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Pending Admin Approval</span>
+        <?php else: ?>
+            <span class="badge badge-success bg-gradient-success px-3 rounded-pill">Admin Approved</span>
+        <?php endif; ?>
+    </dd>
+</dl>
 	<div class="clear-fix mb-3"></div>
 	<div class="text-right">
 		<button class="btn btn-default bg-gradient-dark btn-sm btn-flat" type="button" data-dismiss="modal"><i class="fa f-times"></i> Close</button>

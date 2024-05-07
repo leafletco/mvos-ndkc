@@ -22,14 +22,16 @@
                         <h2 class="text-center"><b>Summary</b></h2>
                     </div>
                     <?php 
-                    $gtotal = 0;
-                    $vendors = $conn->query("SELECT * FROM `vendor_list` where id in (SELECT vendor_id from product_list where id in (SELECT product_id FROM `cart_list` where client_id ='{$_settings->userdata('id')}')) order by `shop_name` asc");
-                    while($vrow=$vendors->fetch_assoc()):    
-                    $vtotal = $conn->query("SELECT sum(c.quantity * p.price) FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$_settings->userdata('id')}' and p.vendor_id = '{$vrow['id']}'")->fetch_array()[0];   
-                    $vtotal = $vtotal > 0 ? $vtotal : 0;
-                    $gtotal += $vtotal;
+                        $gtotal = 0;
+                        $vendors = $conn->query("SELECT * FROM `vendor_list` where id in (SELECT vendor_id from product_list where id in (SELECT product_id FROM `cart_list` where client_id ='{$_settings->userdata('id')}')) order by `shop_name` asc");
+                        while($vrow=$vendors->fetch_assoc()):    
+                            $vtotal = $conn->query("SELECT sum(c.quantity * p.price) FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$_settings->userdata('id')}' and p.vendor_id = '{$vrow['id']}'")->fetch_array()[0];   
+                            $vtotal = $vtotal > 0 ? $vtotal : 0;
+                            $gtotal += $vtotal;
 
-                    ?>
+                            // Update stock availability
+                            $conn->query("UPDATE product_list p INNER JOIN cart_list c ON p.id = c.product_id SET p.stock_available = p.stock_available - c.quantity WHERE c.client_id = '{$_settings->userdata('id')}' and p.vendor_id = '{$vrow['id']}'");
+                        ?>
                     <div class="col-12 border item">
                         <b class="text-muted"><small><?= $vrow['code']." - ".$vrow['shop_name'] ?></small></b>
                         <div class="text-right"><b><?= format_num($vtotal) ?></b></div>
@@ -45,6 +47,8 @@
         </div>
     </div>
 </div>
+
+
 <script>
     $('#checkout-form').submit(function(e){
         e.preventDefault()
